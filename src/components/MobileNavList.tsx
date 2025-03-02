@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
+import { getLastPathSegment } from "@/utils/getLastPathSegment";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -23,7 +24,7 @@ const MobileNavList = () => {
             "font-bold text-primary text-[0.8125rem] leading-[1.5rem]",
           )}
         >
-          Text
+          {getLastPathSegment(pathname)}
         </p>
         <button>
           <svg
