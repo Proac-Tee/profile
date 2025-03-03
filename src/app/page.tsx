@@ -1,7 +1,9 @@
+import LandingPage from "@/features/landingPage/Components/LandingPage";
+
 export default function Home() {
   return (
     <main>
-      <h1 className="bg-primary">Text</h1>
+      <LandingPage />
     </main>
   );
 }

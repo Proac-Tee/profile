@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div
       className={cn(
-        "flex items-center justify-center border-border border-solid rounded-[2rem] md:rounded-[3rem] w-[2.75rem] h-[2.75rem] md:w-[4rem] md:h-[4rem] border-[2px]",
+        "flex items-center justify-center bg-secondaryBackgroundColor border-border border-solid rounded-[2rem] md:rounded-[3rem] w-[2.75rem] h-[2.75rem] md:w-[4rem] md:h-[4rem] border-[2px]",
       )}
     >
       <svg

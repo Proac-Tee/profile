@@ -11,7 +11,7 @@ const MobileNavList = () => {
   return (
     <nav
       className={cn(
-        "block md:hidden px-[1rem] border-border border-solid rounded-[1.375rem] w-[100%] border-[2px]",
+        " bg-secondaryBackgroundColor block md:hidden px-[1rem] border-border border-solid rounded-[1.375rem] w-[100%] border-[2px]",
       )}
     >
       <div

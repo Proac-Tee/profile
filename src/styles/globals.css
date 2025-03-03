@@ -9,8 +9,9 @@
   --color-gray: #c0c0c0;
   --color-black: #000000;
   --color-priamryButtonColor: #e63e21;
-  --color-secondaryButtonColor: #1b1b1b;
+  --color-secondaryBackgroundColor: #1b1b1b;
   --color-primary: #f35034;
+  --color-primaryLight: #e4643f;
 }
 
 :root {

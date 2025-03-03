@@ -5,7 +5,7 @@ import MobileNavList from "./MobileNavList";
 
 const NavBar = () => {
   return (
-    <header className="flex max-w-[1440px] mx-auto justify-start items-center">
+    <header className="flex py-[2rem] max-w-[1440px] mx-auto justify-start items-center">
       <Logo />
       <NavList />
       <MobileNavList />

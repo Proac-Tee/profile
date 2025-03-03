@@ -11,7 +11,7 @@ const NavList = () => {
   return (
     <nav
       className={cn(
-        "px-[3rem] hidden md:block border-border border-solid rounded-[3rem] w-[100%] border-[2px]",
+        "px-[3rem] hidden md:block border-border bg-secondaryBackgroundColor border-solid rounded-[3rem] w-[100%] border-[2px]",
       )}
     >
       <ul
