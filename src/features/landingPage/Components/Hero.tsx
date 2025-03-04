@@ -1,10 +1,16 @@
+import CustomLink from "@/components/ui/CustomLink";
 import { cn } from "@/utils/cn";
-import Link from "next/link";
+import Image from "next/image";
 import React from "react";
+import profileImage from "../../../../assets/babatunde_headshot.png";
 
 const Hero = () => {
   return (
-    <section className={cn("py-[3.75rem]")}>
+    <section
+      className={cn(
+        "py-[1.375rem] md:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] ",
+      )}
+    >
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-[0.9375rem]">
         <p className="text-gray font-medium text-[1.5rem]">Engineer</p>
         <p
@@ -27,7 +33,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <section className="pt-[4.375rem] flex-col-reverse md:flex-row flex justify-between gap-[1.875rem]">
+      <section className="pt-[4.375rem] flex-col-reverse md:flex-row flex justify-between items-start md:items-center gap-[1.875rem]">
         <div>
           <h1 className="text-white mb-[0.9375rem] font-semibold text-[2rem]">
             I&#39;m Babatunde
@@ -40,11 +46,7 @@ const Hero = () => {
               "mt-[1.75rem] flex justify-start items-center gap-[0.875rem]",
             )}
           >
-            <Link
-              href={`/contact`}
-              className="bg-priamryButtonColor cursor-pointer hover:bg-primaryLight transition-all ease-in-out duration-300 text-[1.125rem] border-[1px] border-background flex justify-center items-center
-          rounded-[15px] px-[1rem]"
-            >
+            <CustomLink className="hover:bg-primaryLight" href={`/contact`}>
               Hire Me
               <span className="pl-[1rem] border-l-[1px] border-l-background h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
@@ -60,12 +62,14 @@ const Hero = () => {
                   />
                 </svg>
               </span>
-            </Link>
-            <button
+            </CustomLink>
+
+            <CustomLink
               className="cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300 bg-secondaryBackgroundColor text-[1.125rem] border-[1px] border-border flex justify-center items-center
           rounded-[15px] px-[1rem]"
+              href={`/resume`}
             >
-              Copy Email
+              Resume
               <span className="pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
                   width="18"
@@ -80,12 +84,23 @@ const Hero = () => {
                   />
                 </svg>
               </span>
-            </button>
+            </CustomLink>
           </section>
         </div>
 
-        <div className="relative w-[178px] h-[178px] rounded-full border-[8px] border-border border-solid">
-          x
+        <div className="relative overflow-hidden w-[178px] h-[178px] rounded-full border-[8px] border-border border-solid">
+          <Image
+            quality={100}
+            fill
+            sizes="(min-width: 768px) 100vw, 700px"
+            src={profileImage}
+            priority
+            alt="Babatunde Headeshot"
+            style={{
+              objectFit: "cover",
+              objectPosition: "top",
+            }}
+          />
         </div>
       </section>
     </section>
