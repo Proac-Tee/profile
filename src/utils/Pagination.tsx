@@ -1,7 +1,6 @@
 "use client";
 import React, { type FC } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type TablePaginationProps } from "~/lib/types";
 import { IProject } from "@/features/project/schemas/schema";
 
 export type TablePaginationProps = {
