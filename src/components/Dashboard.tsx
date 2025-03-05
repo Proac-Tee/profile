@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardProjectTable from "@/features/project/components/DashboardProjectTable";
+import Project from "@/features/project/components/Project";
 import Loading from "@/utils/Loading";
 import SuspenseWrapper from "@/utils/SuspenseWrapper";
 import { useSearchParams } from "next/navigation";
@@ -17,7 +17,7 @@ const Dashboard = () => {
   const renderComponent = () => {
     switch (active_section) {
       case "projects":
-        return <DashboardProjectTable />;
+        return <Project />;
 
       default:
         return "";
