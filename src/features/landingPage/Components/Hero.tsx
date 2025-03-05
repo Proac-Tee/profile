@@ -70,17 +70,19 @@ const Hero = () => {
               href={`/resume`}
             >
               Resume
-              <span className="pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
+              <span className="ml-[2rem] pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
                 >
                   <path
-                    d="M17.25 0.000488281H5.25C5.05109 0.000488281 4.86032 0.0795061 4.71967 0.220158C4.57902 0.360811 4.5 0.551576 4.5 0.750488V4.50049H0.75C0.551088 4.50049 0.360322 4.57951 0.21967 4.72016C0.0790178 4.86081 0 5.05158 0 5.25049V17.2505C0 17.4494 0.0790178 17.6402 0.21967 17.7808C0.360322 17.9215 0.551088 18.0005 0.75 18.0005H12.75C12.9489 18.0005 13.1397 17.9215 13.2803 17.7808C13.421 17.6402 13.5 17.4494 13.5 17.2505V13.5005H17.25C17.4489 13.5005 17.6397 13.4215 17.7803 13.2808C17.921 13.1402 18 12.9494 18 12.7505V0.750488C18 0.551576 17.921 0.360811 17.7803 0.220158C17.6397 0.0795061 17.4489 0.000488281 17.25 0.000488281ZM12 16.5005H1.5V6.00049H12V16.5005ZM16.5 12.0005H13.5V5.25049C13.5 5.05158 13.421 4.86081 13.2803 4.72016C13.1397 4.57951 12.9489 4.50049 12.75 4.50049H6V1.50049H16.5V12.0005Z"
-                    fill="#C0C0C0"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
                   />
                 </svg>
               </span>
@@ -88,7 +90,7 @@ const Hero = () => {
           </section>
         </div>
 
-        <div className="relative overflow-hidden w-[178px] h-[178px] rounded-full border-[8px] border-border border-solid">
+        <div className="relative bg-white overflow-hidden w-[178px] h-[178px] rounded-full border-[8px] border-border border-solid">
           <Image
             quality={100}
             fill

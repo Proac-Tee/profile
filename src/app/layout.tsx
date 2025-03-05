@@ -21,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem]`)}
+        className={cn(
+          `${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem] max-w-[1440px] mx-auto `,
+        )}
       >
         <NavBar />
         {children}
