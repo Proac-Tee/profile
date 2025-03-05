@@ -3,7 +3,7 @@ import { z } from "zod";
 export const projectSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters long"),
   description: z.string().min(10, "Description must be at least 10 characters"),
-  techStack: z.array(z.string()).nonempty("Tech stack must not be empty"),
+  techStack: z.array(z.string().min(1, "Tech stack must not be empty")),
   githubUrl: z.string().url("Invalid GitHub URL").optional(),
   liveUrl: z.string().url("Invalid live URL").optional(),
   imageUrls: z
@@ -19,6 +19,8 @@ export const projectSchema = z.object({
     )
     .optional(),
 });
+
+export type ICreateProjectSchema = z.infer<typeof projectSchema>;
 
 export const projectIdSchema = z.object({
   _id: z.string().min(1, "Project ID is required"),
