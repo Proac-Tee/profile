@@ -43,10 +43,13 @@ const Hero = () => {
           </p>
           <section
             className={cn(
-              "mt-[1.75rem] flex justify-start items-center gap-[0.875rem]",
+              "mt-[1.75rem] flex justify-start flex-wrap items-center gap-[0.875rem]",
             )}
           >
-            <CustomLink className="hover:bg-primaryLight" href={`/contact`}>
+            <CustomLink
+              className="text-[1rem] md:text-[1.125rem] hover:bg-primaryLight"
+              href={`/contact`}
+            >
               Hire Me
               <span className="pl-[1rem] border-l-[1px] border-l-background h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
@@ -65,12 +68,12 @@ const Hero = () => {
             </CustomLink>
 
             <CustomLink
-              className="cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300 bg-secondaryBackgroundColor text-[1.125rem] border-[1px] border-border flex justify-center items-center
+              className="cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300 bg-secondaryBackgroundColor text-[1rem] md:text-[1.125rem] border-[1px] border-border flex justify-center items-center
           rounded-[15px] px-[1rem]"
               href={`/resume`}
             >
               Resume
-              <span className="ml-[2rem] pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
+              <span className="ml-[1rem] md:ml-[2rem] pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
