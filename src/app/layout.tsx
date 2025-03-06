@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import NavBar from "@/components/NavBar";
+import { Toaster } from "react-hot-toast";
 import { cn } from "@/utils/cn";
+import { ImageProvider } from "@/features/project/Context/ImageFormContext";
+import QueryProvider from "@/context/QueryProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,15 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          `${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem] max-w-[1440px] mx-auto `,
-        )}
-      >
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <QueryProvider>
+      <ImageProvider>
+        <html lang="en">
+          <body
+            className={cn(
+              `${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem] max-w-[1440px] mx-auto `,
+            )}
+          >
+            <NavBar />
+            <Toaster position="top-right" />
+
+            {children}
+          </body>
+        </html>
+      </ImageProvider>
+    </QueryProvider>
   );
 }

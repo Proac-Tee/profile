@@ -52,7 +52,7 @@ const TablePagination: FC<TablePaginationProps> = ({
           className={`flex h-[30px] w-[30px] items-center justify-center rounded-[6px] text-[0.875rem] md:h-[38px] md:w-[38px] ${
             page === i
               ? "bg-gradient-to-r from-fuchsia-600 to-blue-600 text-white"
-              : "border-[1px] border-[#BCBCBC] text-[#BCBCBC]"
+              : "border-[1px] border-primaryLight text-white"
           }`}
           onClick={() => handlePageChange(i)}
         >
@@ -87,8 +87,8 @@ const TablePagination: FC<TablePaginationProps> = ({
             key="last"
             className={`flex h-[30px] w-[30px] items-center justify-center rounded-[6px] text-[0.875rem] md:h-[38px] md:w-[38px] ${
               page === totalPages
-                ? "bg-primary_color text-white"
-                : "border-[1px] border-[#BCBCBC] text-[#BCBCBC]"
+                ? "bg-white text-white"
+                : "border-[1px] border-primaryLight text-white"
             }`}
             onClick={() => handlePageChange(totalPages)}
           >
@@ -108,11 +108,11 @@ const TablePagination: FC<TablePaginationProps> = ({
           </p>
           <span className="pl-[0.5rem]">Items per page</span>
         </div>
-        <p className="text-[#363636]">{`${page}-${totalPages - 1} of ${
+        <p className="text-white">{`${page}-${totalPages - 1} of ${
           totalEntries.length
         } items`}</p>
       </div>
-      <div className="font-[500 flex flex-wrap items-center justify-center gap-[1rem] text-[0.875rem] text-gray-800">
+      <div className="font-[500 flex flex-wrap items-center justify-center gap-[1rem] text-[0.875rem] text-white">
         <button
           className={`text-[1rem] ${!hasPrevPage ? "opacity-20" : ""}`}
           disabled={!hasPrevPage}
@@ -124,7 +124,7 @@ const TablePagination: FC<TablePaginationProps> = ({
         <div className="flex gap-[1rem]">{renderPaginationButtons()}</div>
 
         <button
-          className={`flex gap-[1rem] font-[500] text-gray-800 ${
+          className={`flex gap-[1rem] font-[500] text-white ${
             !hasNextPage ? "opacity-20" : ""
           }`}
           disabled={!hasNextPage}

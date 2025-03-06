@@ -1,3 +1,4 @@
+import Modal from "@/features/project/utils/Modal";
 import { inter } from "@/lib/fonts";
 import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
@@ -18,6 +19,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <main className={cn(inter.className, "max-w-[1440px] mx-auto ")}>
+      <Modal />
       {children}
     </main>
   );

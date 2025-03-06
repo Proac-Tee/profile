@@ -52,7 +52,7 @@ const Project = () => {
                 />
               </svg>
             </Button>
-            <DashboardProjectTable />
+            <DashboardProjectTable page={page} per_page={per_page} />
           </div>
         );
     }

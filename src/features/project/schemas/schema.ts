@@ -1,6 +1,7 @@
-import { Schema, Document, Types } from "mongoose";
+import { Schema, Document } from "mongoose";
 
 export interface IImage {
+  _id: string;
   key: string;
   url: string;
   size: number;
@@ -8,7 +9,7 @@ export interface IImage {
 }
 
 export interface IProject extends Document {
-  _id: Types.ObjectId;
+  _id: string;
   title: string;
   description: string;
   techStack: string[]; // Array of strings

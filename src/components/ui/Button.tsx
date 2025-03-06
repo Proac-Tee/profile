@@ -9,7 +9,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "px-4 py-2 rounded-[15px] bg-priamryButtonColor text-white",
+          "px-4 py-2 cursor-pointer rounded-[15px] bg-priamryButtonColor text-white",
+
           className,
         )}
         {...props}

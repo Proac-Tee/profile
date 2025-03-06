@@ -8,7 +8,6 @@ const DashobardPage = async () => {
       <div>
         <SideBar />
       </div>
-
       <section className="flex-1 overflow-hidden">
         <Dashboard />
       </section>

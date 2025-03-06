@@ -5,17 +5,22 @@ import db from "@/mongoose/db";
 import ProjectModel from "@/mongoose/ProjectModel";
 import { IProject } from "../../schemas/schema";
 import {
-  partialProjectSchema,
+  ICreateProjectSchema,
+  IPartialProjectSchema,
   projectIdSchema,
   projectSchema,
+  updateProjectSchema,
 } from "../../lib/types";
+import { UTApi } from "uploadthing/server";
+
+const utapi = new UTApi();
 
 /**
  * Add new project with validation
  * @param {IProject} data - Project data to be added
  * @returns {Object} - Success or error message
  */
-export const addNewProject = async (data: IProject) => {
+export const addNewProject = async (data: ICreateProjectSchema) => {
   try {
     await db(); // Ensure the database connection
 
@@ -25,7 +30,7 @@ export const addNewProject = async (data: IProject) => {
       return {
         success: false,
         message: "❌ Validation Error",
-        errors: validationResult.error.format(),
+        errors: validationResult.error.flatten(),
       };
     }
 
@@ -61,11 +66,23 @@ export const addNewProject = async (data: IProject) => {
  * Fetch all projects sorted by newest first
  * @returns {Array} - List of projects or empty array on failure
  */
-export const getAllProjects = async () => {
+export const getAllProjects = async (): Promise<IProject[]> => {
   try {
     await db(); // Ensure database connection
-    const projects = await ProjectModel.find().sort({ createdAt: -1 }); // Sort projects by newest first
-    return projects ?? [];
+
+    const projects = await ProjectModel.find().sort({ createdAt: -1 }).lean(); // Convert Mongoose documents to plain objects
+
+    // Convert `_id` and other nested `_id` fields to strings
+    const sanitizedProjects = projects.map((project) => ({
+      ...project,
+      _id: project._id.toString(), // Convert `_id` to string
+      imageUrls: project.imageUrls.map((image) => ({
+        ...image,
+        _id: image._id.toString(), // Convert nested `_id` to string
+      })),
+    }));
+
+    return sanitizedProjects;
   } catch (error) {
     console.error("❌ Error fetching projects:", error);
     return [];
@@ -81,7 +98,7 @@ export const getSingleProjectById = async (_id: Types.ObjectId) => {
   try {
     await db(); // Ensure database connection
     const project = await ProjectModel.findById(_id); // Find project by ID
-    return project ?? null;
+    return JSON.stringify(project) ?? null;
   } catch (error) {
     console.error("❌ Error fetching project:", error);
     return null;
@@ -95,19 +112,19 @@ export const getSingleProjectById = async (_id: Types.ObjectId) => {
  * @returns {Object} - Success or error message
  */
 export const updateProject = async (
-  _id: Types.ObjectId,
-  data: Partial<IProject>,
+  _id: string,
+  data: IPartialProjectSchema,
 ) => {
   try {
     await db(); // Ensure database connection
 
-    const validationResult = partialProjectSchema.safeParse(data);
+    const validationResult = updateProjectSchema.safeParse(data);
 
     if (!validationResult.success === true) {
       return {
         success: false,
         message: "❌ Validation Error",
-        errors: validationResult.error.format(),
+        errors: validationResult.error.flatten(),
       };
     }
 
@@ -130,7 +147,6 @@ export const updateProject = async (
     return {
       success: true,
       message: "🎉 Successfully updated project.",
-      data: updatedProject,
     };
   } catch (error) {
     if (error instanceof Error) {
@@ -154,22 +170,25 @@ export const updateProject = async (
  * @param {Types.ObjectId} _id - Project ID
  * @returns {Object} - Success or error message
  */
-export const deleteProjectById = async (_id: Types.ObjectId) => {
+export const deleteProjectById = async (_id: string, images: string[]) => {
   try {
     await db(); // Ensure database connection
 
-    const validationResult = projectIdSchema.safeParse(_id);
+    const validationResult = projectIdSchema.safeParse({ _id, images });
 
     if (!validationResult.success === true) {
       return {
         success: false,
         message: "❌ Validation Error",
-        errors: validationResult.error.format(),
+        errors: validationResult.error.flatten(),
       };
     }
 
     // Find and delete the project
     const deletedProject = await ProjectModel.findByIdAndDelete(_id);
+
+    // Delete the image file using the external API
+    await utapi.deleteFiles(images);
 
     if (!deletedProject) {
       return {

@@ -25,7 +25,7 @@ const SideBar = () => {
     <SuspenseWrapper>
       <aside
         className={cn(
-          "px-4 border-border hidden h-[80vh] w-[277px] border-2 rounded-[15px] bg-background py-12 md:flex flex-col",
+          "px-4 border-border hidden min-h-[80vh] w-[277px] border-2 rounded-[15px] bg-background py-12 md:flex flex-col",
         )}
       >
         <h2 className="text-2xl text-primary mb-8 font-medium">Menu</h2>
