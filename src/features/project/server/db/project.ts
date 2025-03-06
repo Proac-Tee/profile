@@ -90,6 +90,37 @@ export const getAllProjects = async (): Promise<IProject[]> => {
 };
 
 /**
+ * Fetch all projects sorted by newest first
+ * @returns {Array} - List of projects or empty array on failure
+ */
+
+export const getThreeProjects = async (): Promise<IProject[]> => {
+  try {
+    await db(); // Ensure database connection
+
+    const projects = await ProjectModel.find()
+      .sort({ createdAt: -1 })
+      .limit(3) // Limit the number of projects to 3
+      .lean(); // Convert Mongoose documents to plain objects
+
+    // Convert `_id` and other nested `_id` fields to strings
+    const sanitizedProjects = projects.map((project) => ({
+      ...project,
+      _id: project._id.toString(), // Convert `_id` to string
+      imageUrls: project.imageUrls.map((image) => ({
+        ...image,
+        _id: image._id.toString(), // Convert nested `_id` to string
+      })),
+    }));
+
+    return sanitizedProjects;
+  } catch (error) {
+    console.error("❌ Error fetching projects:", error);
+    return [];
+  }
+};
+
+/**
  * Fetch a single project by ID
  * @param {Types.ObjectId} _id - Project ID
  * @returns {Object|null} - Project details or null if not found
