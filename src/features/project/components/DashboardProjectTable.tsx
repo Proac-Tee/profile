@@ -7,6 +7,7 @@ import { IProject } from "../schemas/schema";
 import DashboardProjectTableHeader from "./DashboardProjectTableHeader";
 import DashboardProjectBody from "./DashboardProjectBody";
 import TablePagination from "@/utils/Pagination";
+import DashboardSkeleton from "../utils/DashboardSkeleton";
 
 type TableProps = {
   page: number | string;
@@ -59,7 +60,7 @@ const DashboardProjectTable: FC<TableProps> = ({ page, per_page }) => {
           />
         </section>
       ) : (
-        ""
+        <DashboardSkeleton />
       )}
     </section>
   );

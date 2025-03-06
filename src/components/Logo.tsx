@@ -1,9 +1,11 @@
 import { cn } from "@/utils/cn";
+import Link from "next/link";
 import React from "react";
 
 const Logo = () => {
   return (
-    <div
+    <Link
+      href={`/`}
       className={cn(
         "flex items-center justify-center bg-secondaryBackgroundColor border-border border-solid rounded-[2rem] md:rounded-[3rem] w-[2.75rem] h-[2.75rem] md:w-[4rem] md:h-[4rem] border-[2px]",
       )}
@@ -23,7 +25,7 @@ const Logo = () => {
         <path
           d="M0 20C0 17.8849 1.71465 16.1702 3.82979 16.1702C5.94492 16.1702 7.65957 17.8849 7.65957 20C7.65957 22.1151 5.94492 23.8298 3.82979 23.8298C1.71465 23.8298 0 22.1151 0 20Z"
           fill="#F35034"
-        />
+        />{" "}
         <path
           d="M0 28.0851C0 25.97 1.71465 24.2553 3.82979 24.2553C5.94492 24.2553 7.65957 25.97 7.65957 28.0851C7.65957 30.2002 5.94492 31.9149 3.82979 31.9149C1.71465 31.9149 0 30.2002 0 28.0851Z"
           fill="#F35034"
@@ -101,7 +103,7 @@ const Logo = () => {
           fill="#F35034"
         />
       </svg>
-    </div>
+    </Link>
   );
 };
 

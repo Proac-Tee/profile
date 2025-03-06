@@ -1,6 +1,7 @@
 "use client";
 
 import Project from "@/features/project/components/Project";
+import DashboardSkeleton from "@/features/project/utils/DashboardSkeleton";
 import Loading from "@/utils/Loading";
 import SuspenseWrapper from "@/utils/SuspenseWrapper";
 import { useSearchParams } from "next/navigation";
@@ -20,7 +21,7 @@ const Dashboard = () => {
         return <Project />;
 
       default:
-        return "";
+        return <DashboardSkeleton />;
     }
   };
 
