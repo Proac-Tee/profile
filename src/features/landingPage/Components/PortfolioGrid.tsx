@@ -5,10 +5,11 @@ import LatestProjects from "./LatestProjects";
 
 const PortfolioGrid = () => {
   return (
-    <section className="py-[1.25rem]">
+    <section className="py-[1.25rem] lg:grid grid-cols-2 grid-rows-[repeat(9,150px)] gap-[1.25rem]">
       <Experience />
       <Specialization />
-      <LatestProjects />
+      <LatestProjects limit={1} className="row-start-5 row-end-10" />
+      <LatestProjects className="row-start-3 mt-[1rem] row-end-10" limit={2} />
     </section>
   );
 };

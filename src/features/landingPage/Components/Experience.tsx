@@ -6,7 +6,7 @@ const Experience = () => {
   return (
     <section
       className={cn(
-        "py-[1.375rem] md:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem]",
+        "mb-[1rem] lg:mb-0 row-start-1 row-end-5 py-[1.375rem] lg:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem]",
       )}
     >
       <h2 className="text-gray flex items-center gap-[0.8125rem] font-medium text-[1rem] md:text-[1.5rem]">
@@ -22,25 +22,28 @@ const Experience = () => {
         Recent Work
       </h2>
 
-      <section className="pt-[2.375rem] md:pt-[4.375rem]">
+      <section className="pt-[2.375rem] md:pt-[3.375rem]">
         {workExperiences.map((experience, index) => (
           <div
-            className="flex mb-[2.3125rem] justify-between gap-[2rem]"
+            className="flex  mb-[2.1rem] justify-between gap-[2rem]"
             key={index}
           >
             <div>
               <h3
-                className={cn("text-[1rem] md:text-[1.5rem] font-medium", {
-                  "text-primary": index === 0,
-                })}
+                className={cn(
+                  "text-[1rem] md:text-[1.125rem] xl:text-[1.5rem] font-medium",
+                  {
+                    "text-primary": index === 0,
+                  },
+                )}
               >
                 {experience.title}
               </h3>
-              <h4 className="text-gray text-[0.9375rem] md:text-[1.25rem] font-normal]">
+              <h4 className="text-gray text-[0.9375rem] md:text-[1.125rem] xl:text-[1.25rem] font-normal]">
                 {experience.startDate} - {experience.endDate}
               </h4>
             </div>
-            <p className="text-gray text-[1rem] md:text-[1.25rem]">
+            <p className="text-gray text-end text-[1rem] md:text-[1.125rem] xl:text-[1.25rem]">
               {experience.company}
             </p>
           </div>

@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <main>
+      <main className="min-h-[100vh]">
         <LandingPage />
       </main>
     </HydrationBoundary>
