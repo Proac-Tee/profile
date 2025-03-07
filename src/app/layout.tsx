@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { cn } from "@/utils/cn";
 import { ImageProvider } from "@/features/project/Context/ImageFormContext";
 import QueryProvider from "@/context/QueryProvider";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
             <Toaster position="top-right" />
 
             {children}
+            <Footer />
           </body>
         </html>
       </ImageProvider>

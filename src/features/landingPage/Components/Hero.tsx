@@ -15,7 +15,7 @@ const Hero = () => {
         <p className="text-gray font-medium text-[1.5rem]">Engineer</p>
         <p
           className={cn(
-            "bg-background w-fit flex justify-center items-center gap-[1rem] border-[1px] border-border px-[1.0625rem] py-[0.25rem] rounded-[0.875rem] ",
+            "bg-background text-gray w-fit flex justify-center items-center gap-[1rem] border-[1px] border-border px-[1.0625rem] py-[0.25rem] rounded-[0.875rem] ",
           )}
         >
           <span>
@@ -68,12 +68,12 @@ const Hero = () => {
             </CustomLink>
 
             <CustomLink
-              className="cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300 bg-secondaryBackgroundColor text-[1rem] md:text-[1.125rem] border-[1px] border-border flex justify-center items-center
+              className="cursor-pointer text-gray hover:brightness-75 transition-all ease-in-out duration-300 bg-secondaryBackgroundColor text-[1rem] md:text-[1.125rem] border-[1px] border-border flex justify-center items-center
           rounded-[15px] px-[1rem]"
               href={`/resume`}
             >
               Resume
-              <span className="ml-[1rem] md:ml-[2rem] pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
+              <span className="md:ml-[2rem] pl-[1rem] border-l-[1px] border-l-border h-[42px] flex justify-center ml-[1rem] items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
