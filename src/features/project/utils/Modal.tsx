@@ -22,7 +22,7 @@ const Modal = () => {
   return (
     <SuspenseWrapper>
       {active_section && (
-        <dialog className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-auto bg-black opacity-80">
+        <dialog className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-auto bg-black opacity-95">
           <div className="m-auto py-[2rem] lg:p-8">
             <div className="relative flex flex-col items-center">
               <div className="text-black absolute right-[2rem] top-[1rem] z-10">

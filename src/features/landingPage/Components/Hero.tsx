@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section
       className={cn(
-        "py-[1.375rem] md:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] ",
+        "py-[1.375rem] md:py-[3.75rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] ",
       )}
     >
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-[0.9375rem]">

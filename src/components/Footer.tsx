@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        "py-[1.4375rem] mb-[4rem] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-[1.375rem] md:py-[2.8125rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[2.5rem] md:px-[2.875rem]",
+        "py-[1.4375rem] mb-[4rem] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-[1.375rem] md:py-[2.8125rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[2.5rem] md:px-[2.875rem]",
       )}
     >
       <p className="text-gray text-[1rem] font-medium md:text-[1.5rem]">

@@ -36,6 +36,7 @@ const Dashboard = () => {
           Hi, {displayName}
         </h1>
       )}
+
       <SuspenseWrapper>{renderComponent()}</SuspenseWrapper>
     </section>
   );

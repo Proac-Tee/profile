@@ -6,7 +6,7 @@ const Experience = () => {
   return (
     <section
       className={cn(
-        "mb-[1rem] lg:mb-0 row-start-1 row-end-5 py-[1.375rem] lg:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem]",
+        "mb-[1rem] lg:mb-0 row-start-1 row-end-5 py-[1.375rem] lg:py-[3.75rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem]",
       )}
     >
       <h2 className="text-gray flex items-center gap-[0.8125rem] font-medium text-[1rem] md:text-[1.5rem]">

@@ -20,7 +20,7 @@ const ProjectList: FC<ProjectListProps> = ({
         <div key={project._id}>
           <div
             className={cn(
-              "py-[1.375rem]   md:py-[3.75rem] bg-background border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] relative",
+              "py-[1.375rem]   md:py-[3.75rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] relative",
               className,
               {
                 "h-[298.2px] md:h-[528px] ": limit > 1,
