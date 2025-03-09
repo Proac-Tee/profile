@@ -3,6 +3,7 @@ import { IProject } from "@/features/project/schemas/schema";
 import { getThreeProjects } from "@/features/project/server/db/project";
 import { useQuery } from "@tanstack/react-query";
 import ProjectList from "./ProjectList";
+import ProjectListSkeleton from "../utils/ProjectListSkeleton";
 
 const LatestProjects = ({
   limit = 3,
@@ -19,8 +20,8 @@ const LatestProjects = ({
     },
   });
 
-  if (isPending) {
-    return <p>Loading...</p>;
+  if (!isPending) {
+    return <ProjectListSkeleton limit={limit} className={className} />;
   }
 
   if (error instanceof Error) {

@@ -3,7 +3,7 @@ import React from "react";
 
 const LinkBanner = () => {
   return (
-    <div className="flex justify-center items-center gap-[2rem] py-[1rem] flex-wrap">
+    <div className="flex w-fit mx-auto justify-center items-center gap-[2rem] py-[1rem] flex-wrap">
       <a
         href="mailto:dev@babatundetaiwo.com"
         target="_blank"
