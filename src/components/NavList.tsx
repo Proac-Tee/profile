@@ -20,7 +20,7 @@ const NavList = () => {
         )}
       >
         {navLinks.map((link) => {
-          const isActive = pathname === link.href;
+          const isActive = pathname.startsWith(link.href);
           return (
             <li key={link.href}>
               <Link

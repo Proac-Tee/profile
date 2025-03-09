@@ -19,7 +19,7 @@ const ImageComponent = ({
   return (
     <section className="h-[100%] w-[100%]">
       {/* Main Image Display */}
-      <div className="relative transition-all ease-in-out duration-300 mx-auto mb-[2rem] h-[350px] w-[100%] rounded-[1rem] border-[1px] border-border bg-secondaryBackgroundColor md:rounded-[15px]">
+      <div className="relative transition-all overflow-hidden ease-in-out duration-300 mx-auto mb-[2rem] h-[350px] w-[100%] rounded-[1rem] border-[1px] border-border bg-secondaryBackgroundColor md:rounded-[15px]">
         {selectedImage ? (
           <Image
             src={selectedImage.url}
@@ -31,7 +31,7 @@ const ImageComponent = ({
               objectFit: "cover",
               objectPosition: "center",
             }}
-            className="rounded-[15px]"
+            className="rounded-[15px] transition-all duration-300 ease-in-out hover:scale-125"
           />
         ) : (
           <Image

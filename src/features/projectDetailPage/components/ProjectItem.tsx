@@ -2,17 +2,18 @@ import { IProject } from "@/features/project/schemas/schema";
 import React, { FC } from "react";
 import ImageComponent from "./ImageComponent";
 import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
-import { profile } from "console";
+import { techStack } from "@/utils/techstack";
 
 type ProjectItemProps = {
   project: IProject | undefined;
 };
 
 const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
-  console.log(project);
-
   return (
     <section className="pb-[5rem]">
+      <h1 className="text-primaryLight text-[2rem] md:text-[1.5rem] pb-[1rem]">
+        {capitalizeFirstLetter(project?.title ?? "")}{" "}
+      </h1>
       <ImageComponent
         name={project?.title ?? "Project title"}
         imagePaths={project?.imageUrls ?? []}
@@ -31,8 +32,13 @@ const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
             <h2 className="text-primary text-[1.125rem] md:text-[1.5rem]">
               Tech Stack
             </h2>
-            <div className="border-t-border border-t-[2px] text-gray pt-[1rem]">
-              <h3>{project.techStack.toString()}</h3>
+
+            <div className="border-t-border border-t-[2px] text-gray pt-[1rem] flex gap-2">
+              {project.techStack.map((tech: string) => (
+                <div key={tech} className="w-6 h-6">
+                  {techStack[tech.toLowerCase()] || <span>{tech}</span>}
+                </div>
+              ))}
             </div>
           </section>
           <section className="py-[2rem]">
