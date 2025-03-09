@@ -37,7 +37,8 @@ const ProjectList: FC<ProjectListProps> = ({ projects }) => {
               sizes="(min-width: 768px) 100vw, 700px"
               src={project.imageUrls[0].url}
               priority
-              alt="background image"
+              className="hover:scale-x-125 transition-all duration-300 ease-in-out overflow-hidden"
+              alt={`${project.title} image`}
             />
           </div>
 

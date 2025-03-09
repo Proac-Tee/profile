@@ -1,5 +1,5 @@
 "use client";
-import Projects from "@/features/productPage/components/Projects";
+import Projects from "@/features/projectPage/components/Projects";
 import React from "react";
 
 const ProjectsPage = () => {
