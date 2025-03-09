@@ -20,6 +20,7 @@ const Hero = () => {
         >
           <span>
             <svg
+              className="animate-pulse"
               width="9"
               height="9"
               viewBox="0 0 9 9"
