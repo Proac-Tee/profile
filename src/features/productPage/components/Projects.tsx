@@ -2,8 +2,9 @@ import { IProject } from "@/features/project/schemas/schema";
 import { getAllProjects } from "@/features/project/server/db/project";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import ProjectList from "./ProjectList";
 
-const Projets = () => {
+const Projects = () => {
   const { data, error, isPending } = useQuery<IProject[]>({
     queryKey: ["projects"],
     queryFn: async () => {
@@ -20,7 +21,7 @@ const Projets = () => {
     return <p>Error fetching projects: {error.message}</p>;
   }
 
-  return <div>Projets</div>;
+  return <ProjectList projects={data || []} />;
 };
 
-export default Projets;
+export default Projects;
