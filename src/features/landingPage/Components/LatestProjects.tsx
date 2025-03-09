@@ -4,6 +4,7 @@ import { getThreeProjects } from "@/features/project/server/db/project";
 import { useQuery } from "@tanstack/react-query";
 import ProjectList from "./ProjectList";
 import ProjectListSkeleton from "../utils/ProjectListSkeleton";
+import ErrorSkeleton from "../utils/ErrorSkeleton";
 
 const LatestProjects = ({
   limit = 3,
@@ -20,12 +21,14 @@ const LatestProjects = ({
     },
   });
 
-  if (!isPending) {
+  if (isPending) {
     return <ProjectListSkeleton limit={limit} className={className} />;
   }
 
   if (error instanceof Error) {
-    return <p>Error fetching projects: {error.message}</p>;
+    return (
+      <ErrorSkeleton limit={limit} className={className} text={error.message} />
+    );
   }
 
   return (

@@ -27,7 +27,7 @@ const ProjectListSkeleton: FC<ProjectListSkeletonProps> = ({
             <div className="h-6 bg-zinc-800 rounded w-3/4 mb-4"></div>
             <div
               className={cn("h-48 bg-zinc-800 rounded", {
-                "mt-[5rem] w-[70%] mx-auto": limit > 1,
+                "md:mt-[5rem] mt-0 w-[70%] mx-auto": limit > 1,
                 "mt-[2rem] w-[95%] h-[90%]": limit === 1,
               })}
             ></div>
