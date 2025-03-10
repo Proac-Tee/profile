@@ -2,6 +2,7 @@
 
 import Project from "@/features/project/components/Project";
 import DashboardSkeleton from "@/features/project/utils/DashboardSkeleton";
+import Resume from "@/features/resume/components/Resume";
 import Loading from "@/utils/Loading";
 import SuspenseWrapper from "@/utils/SuspenseWrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
@@ -22,6 +23,8 @@ const Dashboard = () => {
     switch (active_section) {
       case "projects":
         return <Project />;
+      case "resume":
+        return <Resume />;
 
       default:
         return <DashboardSkeleton />;

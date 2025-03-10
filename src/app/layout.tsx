@@ -8,6 +8,7 @@ import { ImageProvider } from "@/features/project/Context/ImageFormContext";
 import QueryProvider from "@/context/QueryProvider";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "./auth/AuthProvider";
+import { ResumeProvider } from "@/features/resume/hooks/ResumeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,21 +31,23 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <QueryProvider>
-        <ImageProvider>
-          <html lang="en">
-            <body
-              className={cn(
-                `${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem] max-w-[1440px] min-h-[100vh] mx-auto `,
-              )}
-            >
-              <NavBar />
-              <Toaster position="top-right" />
+        <ResumeProvider>
+          <ImageProvider>
+            <html lang="en">
+              <body
+                className={cn(
+                  `${inter.className} px-[1rem] md:px-[2rem] lg:px-[4rem] max-w-[1440px] min-h-[100vh] mx-auto `,
+                )}
+              >
+                <NavBar />
+                <Toaster position="top-right" />
 
-              {children}
-              <Footer />
-            </body>
-          </html>
-        </ImageProvider>
+                {children}
+                <Footer />
+              </body>
+            </html>
+          </ImageProvider>
+        </ResumeProvider>
       </QueryProvider>
     </AuthProvider>
   );

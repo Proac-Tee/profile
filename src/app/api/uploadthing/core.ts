@@ -25,6 +25,10 @@ export const ourFileRouter = {
       maxFileSize: "4MB",
       maxFileCount: 4,
     },
+    pdf: {
+      maxFileSize: "1MB",
+      maxFileCount: 1,
+    },
   })
     // Set permissions and file types for this FileRoute
     .middleware(async () => {
@@ -37,7 +41,8 @@ export const ourFileRouter = {
         throw new CustomUploadThingError("Unauthorized");
       }
 
-      // Whatever is returned here is accessible in onUploadComplete as `metadata`
+      // Whatever is returned here is acces const user: KindeUser = await getUser();
+
       return { userId: user.id };
     })
     .onUploadComplete(async ({ file }) => {
