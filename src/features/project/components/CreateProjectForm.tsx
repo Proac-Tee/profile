@@ -176,11 +176,6 @@ const CreateProjectForm = () => {
   return (
     <section className="mb-[2rem]">
       <BackButton>
-        {errorMessage && (
-          <p className="my-4 w-full rounded-sm bg-red-100 p-[0.5rem] text-center text-sm text-red-500">
-            {errorMessage}
-          </p>
-        )}
         <span>
           <svg
             width="16"
@@ -199,6 +194,11 @@ const CreateProjectForm = () => {
         </span>
         Go Back
       </BackButton>
+      {errorMessage && (
+        <p className="my-4 w-full rounded-sm bg-red-100 p-[0.5rem] text-center text-sm text-red-500">
+          {errorMessage}
+        </p>
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-[2rem]">
           <label htmlFor="title">Project Title</label>

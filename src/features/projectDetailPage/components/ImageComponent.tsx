@@ -29,7 +29,7 @@ const ImageComponent = ({
             fill
             style={{
               objectFit: "cover",
-              objectPosition: "center",
+              objectPosition: "top",
             }}
             className="rounded-[15px] transition-all duration-300 ease-in-out hover:scale-125"
           />
@@ -42,7 +42,7 @@ const ImageComponent = ({
             fill
             style={{
               objectFit: "cover",
-              objectPosition: "center",
+              objectPosition: "top 5%",
             }}
             className="rounded-[15px]"
           />

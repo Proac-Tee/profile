@@ -3,7 +3,7 @@ import React from "react";
 
 const LinkBanner = () => {
   return (
-    <div className="flex w-fit mx-auto justify-center items-center gap-[2rem] py-[1rem] flex-wrap">
+    <div className="flex w-fit mx-auto  justify-center items-center gap-[2rem] py-[1rem] flex-wrap">
       <a
         href="mailto:dev@babatundetaiwo.com"
         target="_blank"
@@ -32,7 +32,7 @@ const LinkBanner = () => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[0.875rem] md:text-[ tn1.25rem] hover:text-primary transition-colors  duration-300 ease-in-out"
+          className="text-[0.875rem] md:text-[1.25rem] hover:text-primary transition-colors  duration-300 ease-in-out"
         >
           {link.icon}
         </a>
