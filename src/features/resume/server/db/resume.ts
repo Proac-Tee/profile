@@ -84,7 +84,11 @@ export const getAllResume = async (): Promise<IResume[]> => {
  * @param {<IResume>} data - data for updating
  * @returns {Object} - Success or error message
  */
-export const updateResume = async (_id: string, data: IResume, key: string) => {
+export const updateResume = async (
+  _id: string,
+  data: ICreateResumeSchema,
+  key: string,
+) => {
   try {
     await db(); // Ensure database connection
 

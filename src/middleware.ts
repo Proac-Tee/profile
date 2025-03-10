@@ -2,7 +2,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { NextResponse, type NextRequest } from "next/server";
 
 export const config = {
-  matcher: ["/admin"], // Restrict middleware to only these paths
+  matcher: ["/dashboard"], // Restrict middleware to only these paths
 };
 
 export async function middleware(request: NextRequest) {

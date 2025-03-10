@@ -1,8 +1,9 @@
 "use client";
 
+import DeleteProject from "@/features/project/components/DeleteProject";
 import { useRouter, useSearchParams } from "next/navigation";
-import SuspenseWrapper from "@/utils/SuspenseWrapper";
-import DeleteProject from "../components/DeleteProject";
+import SuspenseWrapper from "./SuspenseWrapper";
+import ResumeUpdate from "@/features/resume/components/ResumeUpdate";
 
 const Modal = () => {
   const searchParams = useSearchParams();
@@ -13,6 +14,8 @@ const Modal = () => {
     switch (active_section) {
       case "project_delete":
         return <DeleteProject />;
+      case "resume_update":
+        return <ResumeUpdate />;
 
       default:
         return null;

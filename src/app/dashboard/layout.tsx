@@ -1,6 +1,6 @@
-import Modal from "@/features/project/utils/Modal";
 import { inter } from "@/lib/fonts";
 import { cn } from "@/utils/cn";
+import Modal from "@/utils/Modal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
