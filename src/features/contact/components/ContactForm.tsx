@@ -146,7 +146,7 @@ const ContactForm = () => {
           disabled={isSubmitting}
           type="submit"
           className={`flex h-[55px] w-[200px] items-center justify-center rounded-[15px] bg-primary font-bold text-white hover:brightness-75 ${
-            isSubmitting && "cursor-not-allowed"
+            isSubmitting && "cursor-not-allowed bg-background"
           }`}
         >
           {isSubmitting ? <Loading /> : "Send"}

@@ -1,6 +1,7 @@
 import CustomLink from "@/components/ui/CustomLink";
 import { IProject } from "@/features/project/schemas/schema";
 import { cn } from "@/utils/cn";
+import Image from "next/image";
 import { FC } from "react";
 
 interface ProjectListProps {
@@ -14,22 +15,44 @@ const ProjectList: FC<ProjectListProps> = ({
   limit = 3,
   className,
 }) => {
+  const displayedProjects =
+    limit === 1 ? projects.slice(0, 1) : projects.slice(1, limit + 1);
+
   return (
     <section className={cn("text-white", className)}>
-      {projects.slice(0, limit).map((project) => (
+      {displayedProjects.map((project) => (
         <div key={project._id}>
           <div
             className={cn(
-              "py-[1.375rem]   md:py-[3.75rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] relative",
+              "py-[1.375rem] md:py-[3.75rem] bg-secondaryBackgroundColor border-border rounded-[0.875rem] border-[2px] px-[1rem] md:px-[2.625rem] relative",
               className,
               {
-                "h-[298.2px] md:h-[528px] ": limit > 1,
+                "h-[298.2px] md:h-[528px]": limit > 1,
                 "h-[466px] md:h-[764px]": limit === 1,
               },
             )}
           >
             <h3>{project.title}</h3>
-            {project.imageUrls[0]?.url}
+
+            <div
+              className={cn(
+                "relative w-full h-[80%] md:h-[90%] mt-[2rem] border-border border-[1px] rounded-[15px]",
+              )}
+            >
+              <Image
+                quality={100}
+                fill
+                sizes="(min-width: 768px) 100vw, 700px"
+                src={project.imageUrls[0].url}
+                priority
+                alt={`${project.title} image`}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                }}
+                className="rounded-[15px]"
+              />
+            </div>
 
             {/* Positioned top-right */}
             <CustomLink
@@ -58,4 +81,5 @@ const ProjectList: FC<ProjectListProps> = ({
     </section>
   );
 };
+
 export default ProjectList;
