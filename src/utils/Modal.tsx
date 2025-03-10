@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import SuspenseWrapper from "./SuspenseWrapper";
 import ResumeUpdate from "@/features/resume/components/ResumeUpdate";
 
-const Modal = () => {
+const ModalComponent = () => {
   const searchParams = useSearchParams();
   const active_section = searchParams.get("case");
   const router = useRouter();
@@ -23,7 +23,7 @@ const Modal = () => {
   };
 
   return (
-    <SuspenseWrapper>
+    <section>
       {active_section && (
         <dialog className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-auto bg-black opacity-95">
           <div className="m-auto py-[2rem] lg:p-8">
@@ -53,6 +53,14 @@ const Modal = () => {
           </div>
         </dialog>
       )}
+    </section>
+  );
+};
+
+const Modal = () => {
+  return (
+    <SuspenseWrapper>
+      <ModalComponent />
     </SuspenseWrapper>
   );
 };

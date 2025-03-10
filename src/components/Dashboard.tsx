@@ -9,7 +9,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
-const Dashboard = () => {
+const DashboardComponent = () => {
   const searchParams = useSearchParams();
   const active_section = searchParams.get("section");
 
@@ -43,8 +43,16 @@ const Dashboard = () => {
         </h1>
       )}
 
-      <SuspenseWrapper>{renderComponent()}</SuspenseWrapper>
+      {renderComponent()}
     </section>
+  );
+};
+
+const Dashboard = () => {
+  return (
+    <SuspenseWrapper>
+      <DashboardComponent />
+    </SuspenseWrapper>
   );
 };
 

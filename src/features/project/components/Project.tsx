@@ -7,7 +7,7 @@ import SuspenseWrapper from "@/utils/SuspenseWrapper";
 import CreateProjectForm from "./CreateProjectForm";
 import UpdateProjectForm from "./UpdateProjectForm";
 
-const Project = () => {
+const ProjectComponent = () => {
   const searchParams = useSearchParams();
   const active_section = searchParams.get("project_action");
   const page = parseInt(searchParams.get("page") ?? "1", 10); // Ensure page is a number
@@ -58,10 +58,14 @@ const Project = () => {
     }
   };
 
+  return <section>{renderComponent()}</section>;
+};
+
+const Project = () => {
   return (
-    <section>
-      <SuspenseWrapper>{renderComponent()}</SuspenseWrapper>
-    </section>
+    <SuspenseWrapper>
+      <ProjectComponent />
+    </SuspenseWrapper>
   );
 };
 

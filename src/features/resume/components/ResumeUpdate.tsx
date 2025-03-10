@@ -25,7 +25,7 @@ const updateResumeMutation = async ({
   return await updateResume(_id, data, key);
 };
 
-const ResumeUpdate = () => {
+const ResumeUpdateComponent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const _id = searchParams.get("resume_update");
@@ -136,37 +136,43 @@ const ResumeUpdate = () => {
   };
 
   return (
+    <section className="min-h-[50vh] w-[70vw] bg-white px-[1rem] py-[2rem] rounded-[15px]">
+      {_id && (
+        <section>
+          {errorMessage && (
+            <p className="my-4 w-full rounded-sm bg-red-100 p-[0.5rem] text-center text-sm text-red-500">
+              {errorMessage}
+            </p>
+          )}
+          <div>
+            <label className="block font-medium"> Upload resume</label>
+            <ResumeUploader />
+          </div>
+          {files.length > 0 && (
+            <Button
+              onClick={updateHandler}
+              disabled={isUploading}
+              className={cn(
+                "hover:bg-primaryLight transition-all min-w-[150px] ease-in-out duration-300",
+                {
+                  "bg-background hover:bg-background cursor-not-allowed":
+                    isUploading,
+                },
+              )}
+            >
+              {isUploading ? <Loading /> : "Update Resume"}
+            </Button>
+          )}
+        </section>
+      )}
+    </section>
+  );
+};
+
+const ResumeUpdate = () => {
+  return (
     <SuspenseWrapper>
-      <section className="min-h-[50vh] w-[70vw] bg-white px-[1rem] py-[2rem] rounded-[15px]">
-        {_id && (
-          <section>
-            {errorMessage && (
-              <p className="my-4 w-full rounded-sm bg-red-100 p-[0.5rem] text-center text-sm text-red-500">
-                {errorMessage}
-              </p>
-            )}
-            <div>
-              <label className="block font-medium"> Upload resume</label>
-              <ResumeUploader />
-            </div>
-            {files.length > 0 && (
-              <Button
-                onClick={updateHandler}
-                disabled={isUploading}
-                className={cn(
-                  "hover:bg-primaryLight transition-all min-w-[150px] ease-in-out duration-300",
-                  {
-                    "bg-background hover:bg-background cursor-not-allowed":
-                      isUploading,
-                  },
-                )}
-              >
-                {isUploading ? <Loading /> : "Update Resume"}
-              </Button>
-            )}
-          </section>
-        )}
-      </section>
+      <ResumeUpdateComponent />
     </SuspenseWrapper>
   );
 };

@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { deleteProjectById } from "../server/db/project";
 import Loading from "@/utils/Loading";
+import SuspenseWrapper from "@/utils/SuspenseWrapper";
 
 const deleteProjectMutation = async ({
   _id,
@@ -17,7 +18,7 @@ const deleteProjectMutation = async ({
   return await deleteProjectById(_id, images);
 };
 
-const DeleteProject = () => {
+const DeleteProjectComponent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const _id = searchParams.get("project_delete");
@@ -133,6 +134,14 @@ const DeleteProject = () => {
         </button>
       </div>
     </section>
+  );
+};
+
+const DeleteProject = () => {
+  return (
+    <SuspenseWrapper>
+      <DeleteProjectComponent />
+    </SuspenseWrapper>
   );
 };
 
