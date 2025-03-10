@@ -149,7 +149,7 @@ const ContactForm = () => {
             isSubmitting && "cursor-not-allowed"
           }`}
         >
-          {isSubmitting ? <Loading /> : "Submit"}
+          {isSubmitting ? <Loading /> : "Send"}
         </Button>
       </form>
     </section>

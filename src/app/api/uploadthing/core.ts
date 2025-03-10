@@ -1,4 +1,8 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { type KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
+
+const { getUser } = getKindeServerSession();
 
 const f = createUploadthing();
 
@@ -25,7 +29,8 @@ export const ourFileRouter = {
     // Set permissions and file types for this FileRoute
     .middleware(async () => {
       // This code runs on your server before upload
-      const user = { id: "1", name: "babatunde" };
+
+      const user: KindeUser = await getUser();
 
       // If you throw, the user will not be able to upload
       if (!user) {
