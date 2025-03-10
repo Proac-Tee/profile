@@ -1,3 +1,4 @@
+"use client";
 import ProjectDetail from "@/features/projectDetailPage/components/ProjectDetail";
 import React, { use } from "react";
 
