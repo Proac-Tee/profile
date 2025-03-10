@@ -6,6 +6,7 @@ import { type FieldValues, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { contactSchema } from "../lib/types";
 import Button from "@/components/ui/Button";
+import { sendEmail } from "../actions/resend";
 
 const ContactForm = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -23,8 +24,20 @@ const ContactForm = () => {
 
   const onSubmit = async (dataValue: FieldValues) => {
     try {
-      console.log(dataValue);
+      // Explicitly ensure the types
+      const name = String(dataValue.name);
+      const message = String(dataValue.message);
+      const email = String(dataValue.email);
 
+      // Call the server action directly
+      const res = await sendEmail(name, message, email);
+
+      if (!res.success) {
+        setErrorMessage("Failed to send the message, please try again later.");
+        return;
+      }
+
+      setErrorMessage(null);
       reset();
       setCharCount(0);
       toast.success("Message sent successfully! 🎉✨");

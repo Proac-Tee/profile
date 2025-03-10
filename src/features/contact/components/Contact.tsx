@@ -1,14 +1,28 @@
 import React from "react";
 import ContactForm from "./ContactForm";
 import { socialLinks } from "@/utils/socialLinks";
+import contact_image from "../../../../assets/contact.png";
+import Image from "next/image";
 
 const Contact = () => {
   return (
-    <section>
+    <section className="mt-[2rem] flex flex-col-reverse md:flex-row gap-[1rem]">
       <ContactForm />
-      <div>
+      <div className="relative h-[300px] md:h-[500px] w-[100%]">
+        <div>
+          <Image
+            src={contact_image}
+            alt={`Contact page image`}
+            sizes="(min-width: 768px) 100vw, 700px"
+            priority
+            fill
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </div>
         <div
-          className="p-[0.5rem] rounded-[15px] flex w-fit mx-auto justify-center border-border border-[1px] bg-secondaryBackgroundColor
+          className="p-[0.5rem] absolute bottom-0 right-0 rounded-[15px] flex w-fit mx-auto justify-center border-border border-[1px] bg-secondaryBackgroundColor
           items-center gap-[1rem] py-[1rem] flex-col"
         >
           <a
