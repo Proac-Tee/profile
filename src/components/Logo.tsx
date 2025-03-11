@@ -1,10 +1,19 @@
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
-const Logo = () => {
+interface LogoProps {
+  setIsExpanded: Dispatch<SetStateAction<boolean>>;
+}
+
+const Logo: React.FC<LogoProps> = ({ setIsExpanded }) => {
+  const handleLogoClick = () => {
+    setIsExpanded(false); // Collapse the dropdown when the logo is clicked
+  };
+
   return (
     <Link
+      onClick={handleLogoClick}
       href={`/`}
       className={cn(
         "flex items-center justify-center bg-secondaryBackgroundColor border-border border-solid rounded-[2rem] md:rounded-[3rem] w-[2.75rem] h-[2.75rem] md:w-[4rem] md:h-[4rem] border-[2px]",
