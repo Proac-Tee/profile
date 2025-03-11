@@ -11,7 +11,7 @@ const NavList = () => {
   return (
     <nav
       className={cn(
-        "px-[3rem] hidden md:block border-border bg-secondaryBackgroundColor border-solid rounded-[3rem] w-[100%] border-[2px]",
+        "px-[3rem] hidden md:block absolute border-border bg-secondaryBackgroundColor border-solid rounded-[3rem] w-[100%] border-[2px]",
       )}
     >
       <ul
@@ -20,12 +20,12 @@ const NavList = () => {
         )}
       >
         {navLinks.map((link) => {
-          const isActive = pathname.startsWith(link.href);
+          const isActive = pathname === link.href;
           return (
             <li key={link.href}>
               <Link
                 className={cn("leading-[1.5rem] text-[1.25rem]", {
-                  "text-primary font-bold": isActive,
+                  "text-primary hover:text-primaryLight font-bold": isActive,
                 })}
                 href={link.href}
               >

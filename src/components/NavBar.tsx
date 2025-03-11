@@ -5,13 +5,13 @@ import MobileNavList from "./MobileNavList";
 
 const NavBar = () => {
   return (
-    <section className="py-[2rem] sticky top-0 z-50  bg-background max-w-[1440px] mx-auto">
-      <header className="flex justify-start items-center">
-        <Logo />
+    <header className="flex py-[2rem] w-[100%] sticky top-0 bg-background z-50 max-w-[1440px] mx-auto justify-start items-start">
+      <Logo />
+      <div className="relative w-[100%]">
         <NavList />
         <MobileNavList />
-      </header>
-    </section>
+      </div>
+    </header>
   );
 };
 

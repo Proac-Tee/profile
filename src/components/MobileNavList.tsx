@@ -2,16 +2,21 @@
 
 import { cn } from "@/utils/cn";
 import { getLastPathSegment } from "@/utils/getLastPathSegment";
+import { navLinks } from "@/utils/navLinks";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 const MobileNavList = () => {
   const pathname = usePathname();
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+  const toggleDropdown = () => setIsExpanded(!isExpanded);
 
   return (
     <nav
       className={cn(
-        " bg-secondaryBackgroundColor block md:hidden px-[1rem] border-border border-solid rounded-[1.375rem] w-[100%] border-[2px]",
+        " bg-secondaryBackgroundColor absolute block md:hidden px-[1rem] border-border border-solid rounded-[1.375rem] w-[100%] border-[2px]",
       )}
     >
       <div
@@ -26,7 +31,7 @@ const MobileNavList = () => {
         >
           {getLastPathSegment(pathname)}
         </p>
-        <button>
+        <button onClick={toggleDropdown}>
           <svg
             width="17"
             height="12"
@@ -41,6 +46,31 @@ const MobileNavList = () => {
           </svg>
         </button>
       </div>
+
+      <ul
+        className={cn(
+          "flex justify-between transition-all duration-300 ease-in-out flex-col pt-[1rem] pb-[2rem] items-start gap-[2rem] text-white",
+          {
+            hidden: !isExpanded,
+          },
+        )}
+      >
+        {navLinks.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <li key={link.href}>
+              <Link
+                className={cn("text-[0.8125rem]", {
+                  "text-primary hover:text-primaryLight font-bold": isActive,
+                })}
+                href={link.href}
+              >
+                {link.name.toUpperCase()}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };
